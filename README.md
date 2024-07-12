@@ -52,11 +52,30 @@ on the buttons and terminates.
 
 1. DISPLAY shows the panels and buttons, i.e. handles hwo the app is displayed
 2. PANELS are its own thing
-3. LIGHT-CHANGING BUTTON is a button that can toggle whether its lit or not, when given a command
+3. LIGHT-CHANGING BUTTON is a button that can toggle whether it's lit or not, when given a command
 4. GAMECONTROLLER handles logic for displaying the app, changing the buttons to light them up or not, tracks
-the rounds, and ending the game (for win or loss).
+the rounds, and ending the game (for win or loss), and generating the sequence.
 5. ROUND_TRACKER keeps track of what round it is and what the max_round is
 6. COLOR_SEQUENCE is a sequence of colors
 7. RANDOM_COLOR_SEQUENCE_GENERATOR generates a random COLOR_SEQUENCE with given length
 8. COLOR_SEQUENCE_CHECKER checks two color_sequences to be equal up to a given step
 9. FACE_DISPLAYER makes buttons display happy or frowny faces based on command
+10. INPUT_READER converts the user's button inputs into a color sequence.
+
+#4 Multi-paragraph app summary, including components
+This app replicates a simple Simon says game. First, the DISPLAY shows the user a PANEL with 4
+LIGHT-CHANGING BUTTONS.
+
+Then, the GAME CONTROLLER decides how long the game will go and sets that to MAX_ROUNDS. This can be done randomly,
+with user input, or with the default number of 5.
+
+After this, the GAME CONTROLLER tells the RANDOM COLOR SEQUENCE GENERATOR to generate a random color sequence with
+MAX_ROUNDS steps. It saves this sequence in memory. Given this sequence, the GAME CONTROLLER tells the LIGHT-CHANGING
+BUTTONS to light up in the sequence matching the generated color sequence, up to ROUND_NUM steps.
+
+The user tries to replicate the button sequence, and their inputs are converted to a color sequence by the
+INPUT_READER. If the user succeeds, ROUND_TRACKER increments itself and the process begins again. If they fail, the GAMECONTROLLER tells the
+FACE_DISPLAYER to display frowny faces and GAMECONTROLLER terminates the program.
+
+If the user succeeds on the final round, the GAMECONTROLLER tells the FACE DISPLAYER to display happy faces and
+GAME CONTROLLER terminates the program.
