@@ -1,4 +1,4 @@
-#WHAT
+# WHAT
 
 Recently I've been looking at Randy Ingermanson's [snowflake method](https://www.advancedfictionwriting.com/articles/snowflake-method/)
 (I honestly don't remember why). Essentially, the snowflake method is a process for writing the first draft of your
@@ -36,7 +36,7 @@ some basic Scrum/Agile methodology to program the project.
 I'll be using Git as a changelog for this README, and write out each step of the summary, updating every section
 as needed.
 
-#1: One sentence app summary
+# 1: One sentence app summary
 
 This app replicates a simple simon says game.
 
@@ -48,34 +48,130 @@ If they fail, the app displays frowny faces on the buttons and terminates. If th
 the process. If the user wins on the final round (i.e. ROUND_NUM == MAX_ROUNDS), then the app displays happy faces
 on the buttons and terminates.
 
-#3 Simple summary of components
+# 3 Simple summary of components
 
 1. DISPLAY shows the panels and buttons, i.e. handles hwo the app is displayed
 2. PANELS are its own thing
 3. LIGHT-CHANGING BUTTON is a button that can toggle whether it's lit or not, when given a command
 4. GAMECONTROLLER handles logic for displaying the app, changing the buttons to light them up or not, tracks
 the rounds, and ending the game (for win or loss), and generating the sequence.
-5. ROUND_TRACKER keeps track of what round it is and what the max_round is
-6. COLOR_SEQUENCE is a sequence of colors
-7. RANDOM_COLOR_SEQUENCE_GENERATOR generates a random COLOR_SEQUENCE with given length
-8. COLOR_SEQUENCE_CHECKER checks two color_sequences to be equal up to a given step
-9. FACE_DISPLAYER makes buttons display happy or frowny faces based on command
-10. INPUT_READER converts the user's button inputs into a color sequence.
+5. COLOR_SEQUENCE is a sequence of colors
+6. COLOR_SEQUENCE_GENERATOR generates a COLOR_SEQUENCE with given length
+7. COLOR_SEQUENCE_CHECKER checks two color_sequences to be equal up to a given step
+8. INPUT_READER converts the user's button inputs into a color sequence.
+9. GAME DATA holds the info for: what round it is, what max_round is, what the randomly-generated color
+sequence is, and whether the user has won or failed or is continuing
 
-#4 Multi-paragraph app summary, including components
+# 4 Multi-paragraph app summary, including components
 This app replicates a simple Simon says game. First, the DISPLAY shows the user a PANEL with 4
 LIGHT-CHANGING BUTTONS.
 
-Then, the GAME CONTROLLER decides how long the game will go and sets that to MAX_ROUNDS. This can be done randomly,
+Then, the GAME CONTROLLER decides how long the game will go and sets that into GAME DATA. This can be done randomly,
 with user input, or with the default number of 5.
 
-After this, the GAME CONTROLLER tells the RANDOM COLOR SEQUENCE GENERATOR to generate a random color sequence with
-MAX_ROUNDS steps. It saves this sequence in memory. Given this sequence, the GAME CONTROLLER tells the LIGHT-CHANGING
+After this, the GAME CONTROLLER tells the COLOR SEQUENCE GENERATOR to generate a random color sequence with
+MAX_ROUNDS steps. It saves this sequence in GAME DATA. Given this sequence, the GAME CONTROLLER tells the LIGHT-CHANGING
 BUTTONS to light up in the sequence matching the generated color sequence, up to ROUND_NUM steps.
 
 The user tries to replicate the button sequence, and their inputs are converted to a color sequence by the
-INPUT_READER. If the user succeeds, ROUND_TRACKER increments itself and the process begins again. If they fail, the GAMECONTROLLER tells the
-FACE_DISPLAYER to display frowny faces and GAMECONTROLLER terminates the program.
+INPUT_READER. If the user succeeds, GAME_CONTROLLER increments ROUND_NUM and the process begins again. If they fail, the GAMECONTROLLER tells the 
+DISPLAY to display frowny faces and GAMECONTROLLER terminates the program.
 
-If the user succeeds on the final round, the GAMECONTROLLER tells the FACE DISPLAYER to display happy faces and
+If the user succeeds on the final round, the GAMECONTROLLER tells the DISPLAY to display happy faces and
 GAME CONTROLLER terminates the program.
+
+# 5 Expand one-sentence class summaries into one paragraph class summaries, including what it does, dependencies, dependents
+### DISPLAY
+
+Uses: Panels, LightChangingButtons, Game Data
+
+UsedBy: GameController
+
+Handles logic for how the app is displayed. This includes how the panels and buttons are laid out, and
+lighting a button on and off, and displaying a happy or frowny face.
+
+### PANELS
+
+Uses: N/A
+
+Used By: Display
+
+A JPanel display.
+
+### LIGHT CHANGING BUTTONS
+
+Uses: N/A
+
+Used By: Display, Panel?
+
+A button which changes lighting (can be done by changing color to lighter shade if needed) when requested,
+and then immediately turns off. This should also be able to have text written on top of it.
+
+### GAME DATA
+
+Uses: ColorSequence
+
+Used by: GameController, Display
+
+Data for: max_rounds, round_num, and user state (i.e. PLAYING, WON, or LOST)
+
+### GAME CONTROLLER
+
+Uses: DISPLAY, GAME DATA, COLOR SEQUENCE GENERATOR
+
+Used by: GAME APP
+
+Handles all logic involving game data and display.
+
+
+### COLOR SEQUENCE
+
+Uses: N/A
+
+Used by: ColorSequenceGenerator, ColorSequenceChecker, GameController, GameData
+
+Functions as an ordered list of colors - could be represented as strings or colors or enums
+
+### COLOR SEQUENCE GENERATOR
+
+Uses: ColorSequence
+
+Used by: GameController
+
+Generates a ColorSequence with a given length. For our purposes, we want a random generator.
+
+
+### COLOR SEQUENCE CHECKER
+
+Uses: ColorSequence
+
+Used by: GameController
+
+Matches two ColorSequences for equal values up to a given length. Should function the same as checking
+two ordered lists to see if all their values from index 0 to index some-integer are matching.
+
+### INPUT READER
+
+Uses: N/A
+
+Used by: GameController
+
+On a given round_num, reads the user's next round_num button clicks and converts them into a sequence
+of colors. E.g. if the user hits the red and then blue button on round 2, the input reader returns a color
+sequence of red -> blue.
+
+### GAME APP
+
+Uses: GameController, ColorSequenceGenerator, ColorSequence
+
+Used by: N/A
+
+Highest-level component. Creates the randomly-generated color sequence to be used in Game Data, and tells
+the GameController to begin the game
+
+
+
+
+
+
+
