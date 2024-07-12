@@ -35,3 +35,8 @@ some basic Scrum/Agile methodology to program the project.
 
 I'll be using Git as a changelog for this README, and write out each step of the summary, updating every section
 as needed.
+
+#1: One sentence summary
+
+This app replicates a simple simon says game.
+
