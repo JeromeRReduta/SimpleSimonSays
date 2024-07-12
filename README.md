@@ -36,7 +36,14 @@ some basic Scrum/Agile methodology to program the project.
 I'll be using Git as a changelog for this README, and write out each step of the summary, updating every section
 as needed.
 
-#1: One sentence summary
+#1: One sentence app summary
 
 This app replicates a simple simon says game.
 
+#2: One-par app summary
+This app replicates a simple Simon Says game. It does this by displaying a panel with 4 colored buttons.
+Then it decides on a randomly-generated sequence of colors that is MAX_ROUNDS steps long (let's say MAX_ROUNDS is 5 by default).
+On round ROUND_NUM, it plays ROUND_NUM steps of that sequence, and the user must replicate that sequence.
+If they fail, the app plays a frowny face and crashes. If they succeed, increment ROUND_NUM by 1, and repeat
+the process. If the user wins on the final round (i.e. ROUND_NUM == MAX_ROUNDS), then the app plays a happy face
+and crashes/terminates.
