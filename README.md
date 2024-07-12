@@ -43,7 +43,20 @@ This app replicates a simple simon says game.
 #2: One-par app summary
 This app replicates a simple Simon Says game. It does this by displaying a panel with 4 colored buttons.
 Then it decides on a randomly-generated sequence of colors that is MAX_ROUNDS steps long (let's say MAX_ROUNDS is 5 by default).
-On round ROUND_NUM, it plays ROUND_NUM steps of that sequence, and the user must replicate that sequence.
-If they fail, the app plays a frowny face and crashes. If they succeed, increment ROUND_NUM by 1, and repeat
-the process. If the user wins on the final round (i.e. ROUND_NUM == MAX_ROUNDS), then the app plays a happy face
-and crashes/terminates.
+On round ROUND_NUM, it plays ROUND_NUM steps of that sequence by lighting up buttons of each color, and the user must replicate that sequence.
+If they fail, the app displays frowny faces on the buttons and terminates. If they succeed, increment ROUND_NUM by 1, and repeat
+the process. If the user wins on the final round (i.e. ROUND_NUM == MAX_ROUNDS), then the app displays happy faces
+on the buttons and terminates.
+
+#3 Simple summary of components
+
+1. DISPLAY shows the panels and buttons, i.e. handles hwo the app is displayed
+2. PANELS are its own thing
+3. LIGHT-CHANGING BUTTON is a button that can toggle whether its lit or not, when given a command
+4. GAMECONTROLLER handles logic for displaying the app, changing the buttons to light them up or not, tracks
+the rounds, and ending the game (for win or loss).
+5. ROUND_TRACKER keeps track of what round it is and what the max_round is
+6. COLOR_SEQUENCE is a sequence of colors
+7. RANDOM_COLOR_SEQUENCE_GENERATOR generates a random COLOR_SEQUENCE with given length
+8. COLOR_SEQUENCE_CHECKER checks two color_sequences to be equal up to a given step
+9. FACE_DISPLAYER makes buttons display happy or frowny faces based on command
