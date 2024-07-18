@@ -195,5 +195,9 @@ We begin at round 1.
 
 # 7. Expand one-paragraph class summaries into pseudocode
 
-See [SimonSaysPseudocode.txt](SimonSaysPseudocode.txt)
+See [SimonSaysPseudocode.txt](SimonSaysPseudocode.txt).
+
+# 8. Expand multi-section app summary into pseudocode
+
+Did CRC instead. See [CRC Cards](SimpleSimonSays%20CRC%20Cards.png).
 
