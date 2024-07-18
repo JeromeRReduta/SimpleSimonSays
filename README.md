@@ -201,3 +201,8 @@ See [SimonSaysPseudocode.txt](SimonSaysPseudocode.txt).
 
 Did CRC instead. See [CRC Cards](SimpleSimonSays%20CRC%20Cards.png).
 
+# 9. (OPTIONAL) Expand each piece of pseudocode for app into multi-section description of how the app works
+
+(SKIPPED)
+
+
