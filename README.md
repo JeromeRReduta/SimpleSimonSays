@@ -170,8 +170,28 @@ Highest-level component. Creates the randomly-generated color sequence to be use
 the GameController to begin the game
 
 
+# 6. Expand multi-paragraph app summary into multi-section app summary.
 
+This app replicates a simple Simon says game. 
 
+First, the GAME APP initializes all data required to run the game. It uses a COLOR SEQUENCE GENERATOR
+to make a randomly-generated COLOR SEQUENCE, sets the number of rounds to play, and saves this data into 
+GAME DATA.
+
+Then it initializes the DISPLAY, with a JPANEL holding 4 LIGHT-CHANGING BUTTONS. Each LIGHT-CHANGING BUTTON is
+a different color.
+
+Then it initializes the GAME CONTROLLER, which will handle the game logic itself.
+
+The GAME CONTROLLER tells the DISPLAY to light up the LIGHT-CHANGING BUTTON corresponding
+to the first round_num steps in the sequence in GAME DATA. The user pushes round_num buttons. The INPUT READER converts the user's input
+into a COLOR SEQUENCE. If the player's COLOR SEQUENCE matches GAME DATA'S COLOR SEQUENCE for the first n steps,
+then the GAME CONTROLLER increments GAME DATA'S round_num by 1. If round_num > max_rounds, GAME CONTROLLER tells
+the DISPLAY to display happy faces on the LIGHT-CHANGING BUTTONS and terminates. If the player's COLOR SEQUENCE does not match
+with GAME DATA's for up to n steps, the GAME CONTROLLER tells the DISPLAY to display frowny faces on the 
+LIGHT-CHANGING BUTTONS and terminates.
+
+We begin at round 1.
 
 
 
