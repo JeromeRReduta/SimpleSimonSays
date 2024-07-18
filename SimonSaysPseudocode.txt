@@ -1,0 +1,74 @@
+DISPLAY
+
+	void display(): shows the buttons in a JPanel
+
+	void flickerButtonLight(Color color): tells the button with a specific color to light up and then darken
+
+	void displayStringOnButton(String str, Color color): tells button w/ a given color to display a given string
+
+	void displayStringOnButtons(String str): tells all buttons to display a given string. Convenience method
+	
+
+PANEL
+
+	# Generic JPanel stuff
+
+LIGHT CHANGING BUTTON
+
+	Color getColor(): getter method for color. mainly for easy reference
+
+	Color setColor(): setter method for color. mainly for easy reference
+
+	void flickerLight(): lights up and darkens own button, mimicking a button's light switching on and off
+
+	void displayString(String str): tells the button to display a given string
+
+GAME DATA
+
+	// getters and setters for:
+		max rounds
+		round num
+		pre-generated sequence
+
+GAME CONTROLLER
+
+	void display(): calls display.display()
+
+	void flickerButtonLight(Color color): calls display.flickerButtonLight(color)
+
+	void displayHappyFaces(): calls displayStringOnButton( // happy face )
+	
+	void displaySadFaces(): calls displayStringOnButton( // sad face )
+	
+	void incrementRoundNum(): increments game data's round_num
+
+	void runGame(): runs game loop
+
+
+COLOR SEQUENCE
+
+	Literally a List<Color>
+
+COLOR SEQUENCE GENERATOR
+
+	void generate(int length): generates a color sequence of length length. Will make a random color sequence
+		generator which picks random colors between RED, YELLOW, GREEN, BLUE
+
+COLOR SEQUENCE CHECKER
+	boolean isEquals(ColorSequence first, ColorSequence second): calls List.equals(first, second)
+
+	boolean isEqualsUpTo(ColorSequence first, ColorSequence second, int length): matches both lists up to a 		given length. Returns whether they are equal up to the given length.
+
+INPUT READER
+
+	uses button action listeners to turn the user pressing a button
+		corresponding to color X to the class Color X, which it then appends to a ColorSequence. Once
+		the ColorSequence reaches length round_num, it returns getColorSequence().
+
+	ColorSequence getColorSequence(): returns the user's inputs as a color sequence of length round_num
+
+GAME APP
+	
+	void init(): initializes game data, display, controller, color sequence for game data
+
+	void run(): runs game loop. Mainly just calls gameController.runGame()

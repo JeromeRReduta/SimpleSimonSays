@@ -193,5 +193,7 @@ LIGHT-CHANGING BUTTONS and terminates.
 
 We begin at round 1.
 
+# 7. Expand one-paragraph class summaries into pseudocode
 
+See [SimonSaysPseudocode.txt](SimonSaysPseudocode.txt)
 
