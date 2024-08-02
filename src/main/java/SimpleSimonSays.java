@@ -1,8 +1,3 @@
-// Java Program to Create a Simple JPanel
-// and Adding Components to it
-
-// Importing required classes
-
 import Controllers.GameController;
 import Controllers.SimpleGameController;
 import Displays.GameDisplay;
@@ -14,8 +9,6 @@ import Models.SimpleGameData;
 
 import javax.swing.*;
 
-// Class 1
-// Helper class extending JFrame class
 class SimpleSimonSays extends JFrame {
 
     static final int DEFAULT_MAX_ROUNDS = 5;
@@ -32,7 +25,5 @@ class SimpleSimonSays extends JFrame {
         GameController controller = new SimpleGameController(data, display);
         listener.setController(controller);
         controller.runGame();
-
     }
 }
-

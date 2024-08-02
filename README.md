@@ -206,3 +206,35 @@ Did CRC instead. See [CRC Cards](SimpleSimonSays%20CRC%20Cards.png).
 (SKIPPED)
 
 
+# 10. Coding
+
+(Done)
+
+FINDINGS:
+
+I think over-all the experiment was a success. By using the Snowflake Method,
+I managed to understand the project holistically, meaning it never took too long
+to find what it was I was supposed to do next. In fact, the number of issues when developing
+was *lower* than usual.
+
+However, the few problems that *did* come up were pretty time-consuming to fix. I got confused at how to do JPanel and
+JFrame, meaning I had to constantly stop development just to figure out how they worked. In addition, because I designed
+the program around me not knowing how the JPanel/JFrame and events work, I had to spend a ton of time
+re-designing the whole thing, making the design outdated.
+
+That, and the current implementation was too heavy - I feel like I could've run this in a
+week but the documentation ballooned development time into 3 weeks. Of course things take
+longer than you think they will, but I'm sure it wouldn't have taken 3 whole weeks. 
+
+Honestly, I like the idea of the Snowflake method, but I need a more lightweight version - either I need
+fewer steps or smaller steps. Maybe I can pull some ideas from Agile development, which I didn't
+do in order to complete the project before I spent even longer on what was supposed to be a small problem.
+
+In addition, I need to spend more time upfront to understand the tech I'm using. After all, they say if you're
+going to spend an hour chopping an axe, you should spend the first 45 minute your axe. But on a more serious note,
+I need to understand the technology I'm using (i.e. JPanel and Events and ActionListeners) to a practical level in order
+to design around them. Otherwise, I'll end up designing redundant solutions (which is wasted time, effort, and
+resources) or not realize different parts of the program don't mesh with each other until late in the project, at which 
+point I'll have to either leave it as technical debt or rebuild the whole thing from the ground up.
+
+Over-all, I'm excited for what this process can become. Maybe it'll help me code a lot more than I do now.
